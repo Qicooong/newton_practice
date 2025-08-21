@@ -12,6 +12,10 @@ tol = 1e-7
 max_iter = 500
 
 def optimize(x0, f):
+
+    if not callable(f): #check for valid arguments
+        raise TypeError(f"Argument is not a function, it is of type {type(f)}")
+    
     x = float(x0)
     
     for _ in range(max_iter):
